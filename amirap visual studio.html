@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMIRAP VISUAL STUDIO | Official Order</title>
+    <style>
+        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Segoe UI', Tahoma, sans-serif; display: flex; justify-content: center; padding: 40px 20px; line-height: 1.6; margin: 0; }
+        .container { max-width: 600px; width: 100%; background: #111; padding: 40px; border-radius: 20px; border: 1px solid #222; box-shadow: 0 25px 60px rgba(0,0,0,0.8); }
+        h1 { color: #e63946; text-transform: uppercase; letter-spacing: 4px; text-align: center; margin-bottom: 5px; font-size: 1.8rem; }
+        .subtitle { text-align: center; color: #666; font-size: 0.8rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { border-left: 4px solid #e63946; padding-left: 15px; margin-top: 25px; color: #fff; font-size: 1.1rem; }
+        p { color: #aaa; font-size: 0.9rem; }
+        .btn { background-color: #e63946; color: white; padding: 16px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; text-transform: uppercase; width: 100%; font-size: 0.9rem; letter-spacing: 1px; }
+        .btn:hover { background-color: #ff4d5a; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3); }
+        .footer-action { margin-top: 30px; padding-top: 25px; border-top: 1px solid #222; }
+        #puzzle-area { margin: 20px 0; padding: 30px; background: #000; border-radius: 12px; border: 1px solid #333; text-align: center; }
+        input[type="number"], input[type="text"] { background: #1a1a1a; border: 1px solid #333; color: white; padding: 12px; border-radius: 6px; outline: none; width: 100%; box-sizing: border-box; }
+        input:focus { border-color: #e63946; }
+        .tutorial-box { background: #1a1a1a; padding: 20px; border-radius: 12px; border: 1px solid #222; margin-bottom: 25px; }
+        .hidden { display: none; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate { animation: slideUp 0.5s ease forwards; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>AMIRAP VISUAL STUDIO</h1>
+    <div class="subtitle">Premium Video Production & VFX</div>
+
+    <div id="terms-section">
+        <h3>1. Footage Requirements</h3>
+        <p>Ensure footage is <strong>4K or 1080p 60fps</strong>. Stable gimbal shots or high-bitrate raw files are preferred for the best cinematic results.</p>
+        
+        <h3>2. Revision Policy</h3>
+        <p>One major structural revision is included. Minor color or timing tweaks are free until final delivery.</p>
+
+        <div class="footer-action">
+            <div style="margin-bottom: 20px; text-align: center;">
+                <input type="checkbox" id="accept">
+                <label for="accept" style="color: #888; font-size: 0.85rem; cursor: pointer;"> I agree to the Studio Terms & Conditions</label>
+            </div>
+            <button class="btn" onclick="showPuzzle()">Next: Security Check</button>
+        </div>
+    </div>
+
+    <div id="puzzle-section" class="hidden animate">
+        <div id="puzzle-area">
+            <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #e63946; font-weight: bold;">VERIFY YOU ARE HUMAN 🤏🏻</p>
+            <p style="font-size: 0.8rem; color: #666; margin-bottom: 20px;">Solve to unlock the upload area</p>
+            <span id="math-question" style="font-size: 1.8rem; font-weight: bold; margin-right: 15px;"></span> = 
+            <input type="number" id="math-answer" placeholder="?" style="width: 80px; text-align: center; font-size: 1.2rem;">
+            <br><br>
+            <button class="btn" onclick="verifyUser()">Continue to Upload</button>
+        </div>
+    </div>
+
+    <div id="upload-section" class="hidden animate">
+        <div class="tutorial-box">
+            <p style="color: #e63946; font-weight: bold; margin-top: 0; font-size: 0.8rem;">📂 SUBMISSION GUIDE</p>
+            <ol style="padding-left: 18px; font-size: 0.85rem; color: #ccc;">
+                <li>Upload files to <strong>Google Drive / WeTransfer</strong>.</li>
+                <li>Set link to <strong>"Anyone with the link can view"</strong>.</li>
+                <li>Paste link and your name below.</li>
+            </ol>
+        </div>
+
+        <form action="https://formsubmit.co/YOUR_EMAIL_HERE@GMAIL.COM" method="POST">
+            <input type="hidden" name="_subject" value="NEW PROJECT: Amirap Visual Studio">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            
+            <p style="margin-bottom: 8px; font-size: 0.85rem;">Footage Link:</p>
+            <input type="text" name="Footage_Link" placeholder="https://drive.google.com/..." required style="margin-bottom: 20px;">
+            
+            <p style="margin-bottom: 8px; font-size: 0.85rem;">Your Instagram/YouTube Name:</p>
+            <input type="text" name="Client_Name" placeholder="@username" required style="margin-bottom: 25px;">
+
+            <button type="submit" class="btn">🚀 Submit Order</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Logic for Math Puzzle
+    const n1 = Math.floor(Math.random() * 8) + 2;
+    const n2 = Math.floor(Math.random() * 7) + 1;
+    const result = n1 + n2;
+    document.getElementById('math-question').innerText = `${n1} + ${n2}`;
+
+    function showPuzzle() {
+        if (!document.getElementById('accept').checked) { 
+            alert("Please accept the terms first."); return; 
+        }
+        document.getElementById('terms-section').style.display = 'none';
+        document.getElementById('puzzle-section').classList.remove('hidden');
+    }
+
+    function verifyUser() {
+        const answer = parseInt(document.getElementById('math-answer').value);
+        if (answer === result) {
+            document.getElementById('puzzle-section').style.display = 'none';
+            document.getElementById('upload-section').classList.remove('hidden');
+        } else { 
+            alert("Wrong answer! Try again."); 
+        }
+    }
+</script>
+
+</body>
+</html>
